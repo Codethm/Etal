@@ -7,8 +7,8 @@ $sql = $conn->prepare($select);
 while($data=$sql->fetch())
 {
     echo $data['idstudent']."  ";
-    echo $data['name']."<hr>";
-}   
+    echo $data['name']."<br> ";
+} 
 ?> 
 <br>
 <form action="Insert.php" method="POST">

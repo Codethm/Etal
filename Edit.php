@@ -8,7 +8,7 @@ $sql = $conn->prepare($select);
 while($data=$sql->fetch())
 {
     echo $data['idstudent']."  ";
-    echo $data['name']."<hr>";
+    echo $data['name']."<br>";
 }  
 
 if(! empty($_GET['id'])&& !empty($_GET['name']))
