@@ -8,12 +8,19 @@ while($data=$sql->fetch())
 {
     echo $data['idstudent']."  ";
     echo $data['name']."<hr>";
-}   
-?> 
+}
+if(!empty($_POST['id']))
+{
+$Del = $_POST['id'];
+
+$sql="DELETE FROM student WHERE idstudent=$Del";
+$conn->exec($sql);
+header("Location: index.php");
+}
+?>
+
 <br>
-<form action="Insert.php" method="POST">
-<input type="submit" value="Insert">
-</form>
 <form action="Delete.php" method="POST">
+<input type="number" name="id">
 <input type="submit" value="Delete">
 </form>
