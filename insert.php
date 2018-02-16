@@ -17,6 +17,3 @@ header("Location: index.php");
 <input type=text name="name" placeholder="Name"><br><br>
 <input type="submit">
 </form>
-<form   method="POST" action="index.php">
-<input type="submit" value="Back">
-</form>
