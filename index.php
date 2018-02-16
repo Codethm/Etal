@@ -17,3 +17,7 @@ while($data=$sql->fetch())
 <form action="Delete.php" method="POST">
 <input type="submit" value="Delete">
 </form>
+</form>
+<form action="Edit.php" method="POST">
+<input type="submit" value="Edit">
+</form>
