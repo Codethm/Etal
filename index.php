@@ -3,13 +3,14 @@ include_once('connect_db.php');
 
 $select ="SELECT * FROM student";
 $sql = $conn->prepare($select);
-    $sql->execute();
+$sql->execute();
+$result = $sql->fetch(PDO::FETCH_ASSOC);
 while($data=$sql->fetch())
 {
     echo $data['idstudent']."  ";
     echo $data['name']."<br> ";
 } 
-?> 
+?>
 <br>
 <form action="Insert.php" method="POST">
 <input type="submit" value="Insert">
