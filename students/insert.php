@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+    <link rel="stylesheet" href="Css.css"> 
+    <title>Document</title>
+</head>
+<body bgcolor="#00cc99">
 <?php
 include_once('connect_db.php');
 
@@ -15,10 +24,14 @@ header("Location: index.php");
 }
 ?> 
 <br>
+<div class="w3-container">
 <form metod="GET" action="insert.php">
-<input type=text name="id" placeholder="ID" class=" "><br><br>
-<input type=text name="Fname" placeholder="First Name" class=" "><br><br>
-<input type=text name="Lname" placeholder="Last Name" class=" "><br><br>
-<input type=text name="Major" placeholder="Major" class=" "><br><br>
-<input type="submit">
+<input type="text" name="id" placeholder="ID" ><br><br>
+<input type="text" name="Fname" placeholder="First Name" ><br><br>
+<input type="text" name="Lname" placeholder="Last Name" ><br><br>
+<input type="text" name="Major" placeholder="Major" ><br><br>
+<input type="submit" Value="Send" class="w3-button w3-blue ">
 </form>
+</div>
+</body>
+</html>
