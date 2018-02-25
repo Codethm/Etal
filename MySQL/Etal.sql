@@ -33,7 +33,7 @@ ENGINE = InnoDB;
 -- Table `etalDB`.`teacher`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `etalDB`.`teacher` (
-  `idteacher` INT NOT NULL,
+  `idteacher` INT NOT NULL AUTO_INCREMENT,
   `fullname` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
   `password` VARCHAR(45) NULL,
