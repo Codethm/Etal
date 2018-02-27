@@ -15,7 +15,7 @@ $sql = "INSERT INTO subjects(name,teacher_idteacher,location,numweek) VALUE('$na
 echo $sql;
 $conn ->exec($sql);
 $last_id = $conn->lastInsertId();
-
+$_SESSION['idcreateclass'] = $last_id;
 
 for($w=1;$w <= $numweek;$w++){
 	
@@ -26,6 +26,7 @@ for($w=1;$w <= $numweek;$w++){
 	$date = date("Y-m-d",strtotime($date."+1 week"));
 
 }
+header('location: student.php');
 }
 
 
