@@ -1,5 +1,6 @@
 <?php
 include_once('connect_db.php');
+session_start();
 
 $name = $_POST['name'];
 $location = $_POST['location'];

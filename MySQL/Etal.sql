@@ -24,9 +24,8 @@ USE `etalDB` ;
 CREATE TABLE IF NOT EXISTS `etalDB`.`student` (
   `idstudent` INT NOT NULL AUTO_INCREMENT,
   `id` VARCHAR(45) NULL,
-  `Fname` VARCHAR(45) NULL,
-  `Lname` VARCHAR(45) NULL,
-  `Major` VARCHAR(45) NULL,
+  `fullname` VARCHAR(45) NULL,
+  `major` VARCHAR(45) NULL,
   PRIMARY KEY (`idstudent`))
 ENGINE = InnoDB;
 
