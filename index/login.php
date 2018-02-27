@@ -4,7 +4,7 @@ include_once('connect_db.php');
 $email = $_POST['email'];
 $pass = $_POST['pass'];
 
-$sql = "SELECT fname,password FROM teacher WHERE email = '$email';";
+$sql = "SELECT ,fullname,password FROM teacher WHERE email = '$email';";
 echo $sql;
 
 $stmt = $conn->prepare($sql);
@@ -14,7 +14,7 @@ if($stmt->execute()){
             $hashed_password = $row['password'];
             if(password_verify($pass,$hashed_password)){
                 session_start();
-                $_SESSION['name'] = $row['fname'];     
+                $_SESSION['name'] = $row['fullname'];     
                 header("location: http://127.0.0.1/Etal/index/main.php");
             } else{
                 $message = 'The password you entered was not valid.';
