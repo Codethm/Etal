@@ -22,6 +22,11 @@ if($stmt->execute())
         $sql =  "INSERT INTO teacher(fullname,email,password)
         VALUES('$Fname','$Email','$Pass')";
         $conn ->exec($sql);
+        session_start();
+
+        $_SESSION['name']= $Fname;
+
+        header('http://127.0.0.1/Etal/index/main.php');
     }else
     {
         $message = 'account found with that Email.';
