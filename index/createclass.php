@@ -48,12 +48,12 @@ $conn ->exec($sql);
 
 <body>
 		<div class="w3-bar w3-white w3-card" id="myNavbar">
-				<a href="#home" class="w3-bar-item w3-button w3-wide ">ETAL</a>
+				<a href="main.php" class="w3-bar-item w3-button w3-wide ">ETAL</a>
 				<!-- Right-sided navbar links -->
 				<div class="w3-right w3-hide-small">
 				  <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
 				  <!--ใส่ชื่ออาจารย์นะ-->
-				  <a href="createclass.html" class="w3-bar-item w3-button"><i class="fa fa-list-alt"></i> &nbsp;CREATE CLASS</a>
+				  
 				  <a href="#team" class="w3-bar-item w3-button"><i class="	fa fa-group"></i> <?php echo htmlspecialchars($_SESSION['name']); ?> </a>
 				  
 				  <a href="index.html" class="w3-bar-item w3-button"><i class="	fa fa-share-square-o"></i> LOG OUT</a>
@@ -65,7 +65,23 @@ $conn ->exec($sql);
 				  <i class="fa fa-bars"></i>
 				</a>
 			  <div>
-			</div>
+		</div>
+
+        <!-- Sidebar on small screens when clicking the menu icon -->
+
+		<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+			<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+			<a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+			
+			<a href="#team" class="w3-bar-item w3-button">
+				<i class="	fa fa-group"></i>
+				<?php echo htmlspecialchars($_SESSION['name']); ?> </a>
+			<a href="index.html" class="w3-bar-item w3-button">
+				<i class="	fa fa-share-square-o"></i> LOG OUT</a>
+
+		</nav>
+
+
 	<div class="container-login100">
 		<div class="w3-container w3-content w3-padding-64 wrap-login100" style="max-width:1000px">
 			<!--ส่วนเพิ่มข้อมูล-->
@@ -125,6 +141,31 @@ $conn ->exec($sql);
 	</script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
+	<script>
+		var mySidebar = document.getElementById("mySidebar");
+
+		function w3_open() {
+			if (mySidebar.style.display === 'block') {
+				mySidebar.style.display = 'none';
+			} else {
+				mySidebar.style.display = 'block';
+			}
+		}
+
+		// Close the sidebar with the close button
+		function w3_close() {
+			mySidebar.style.display = "none";
+		}
+
+
+
+
+	</script>
+
+
+
+
 
 </body>
 
