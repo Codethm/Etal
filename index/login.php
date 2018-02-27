@@ -15,7 +15,7 @@ if($stmt->execute()){
             if(password_verify($pass,$hashed_password)){
                 session_start();
                 $_SESSION['name'] = $row['fname'];     
-                header("location: http://127.0.0.1/Etal/students/");
+                header("location: http://127.0.0.1/Etal/index/main.php");
             } else{
                 $message = 'The password you entered was not valid.';
                 echo "<script type='text/javascript'>alert('$message');</script>";
