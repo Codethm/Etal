@@ -2,18 +2,31 @@
 include_once('connect_db.php');
 session_start();
 
+if(isset($_POST['name'],$_POST['location'],$_POST['date'],$_POST['time'],$_POST['numweek'])){
+$idteacher = $_SESSION["idteacher"];
+
 $name = $_POST['name'];
 $location = $_POST['location'];
 $date = $_POST['date'];
 $time = $_POST['time'];
 $numweek = $_POST['numweek'];
-$pk = $_SESSION["pk"];
 
-
-$sql = "INSERT INTO subjects(name,techer_idteacher,location,numweek) VALUE('$name',$pk,'$location','$numweek');";
-
+$sql = "INSERT INTO subjects(name,teacher_idteacher,location,numweek) VALUE('$name',$idteacher,'$location','$numweek');";
+echo $sql;
 $conn ->exec($sql);
+$last_id = $conn->lastInsertId();
 
+
+for($w=1;$w <= $numweek;$w++){
+	
+	$datetime = $date." ".$time;
+	$sql="INSERT INTO class(weeknum,date,subjects_idsubjects) VALUE('$w','$datetime',$last_id);";
+	echo $sql;
+	$conn ->exec($sql);
+	$date = date("Y-m-d",strtotime($date."+1 week"));
+
+}
+}
 
 
 ?>

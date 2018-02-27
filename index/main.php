@@ -72,7 +72,7 @@ session_start();
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
       <!--ใส่ชื่ออาจารย์นะ-->
-      <a href="createclasss.php" class="w3-bar-item w3-button"><i class="fa fa-list-alt"></i> &nbsp;CREATE CLASS</a>
+      <a href="createclass.php" class="w3-bar-item w3-button"><i class="fa fa-list-alt"></i> &nbsp;CREATE CLASS</a>
       <a href="#team" class="w3-bar-item w3-button"><i class="	fa fa-group"></i> <?php echo htmlspecialchars($_SESSION['name']); ?> </a>
       
       <a href="index.html" class="w3-bar-item w3-button"><i class="	fa fa-share-square-o"></i> LOG OUT</a>
