@@ -28,7 +28,7 @@
 	<div class="container-login100">
 		<div class="w3-container w3-content w3-padding-64 wrap-login100" style="max-width:1000px">
 			<!--ส่วนเพิ่มข้อมูล-->
-			<form metod="GET" action="index.php" class="w3-container">
+			<form method="POST" action="stuin.php" class="w3-container">
 				<h2 class="w3-wide w3-center ">Insert Student</h2>
 				<br>
 				<br>
@@ -37,10 +37,10 @@
 
 					<div class="w3-row-padding">
 						<div class="w3-third">
-							<input class="w3-input w3-border" type="text" placeholder="ID Student">
+							<input class="w3-input w3-border" type="text" placeholder="ID Student" name="id">
 						</div>
 						<div class="w3-third">
-							<input class="w3-input w3-border" type="text" placeholder="Full Name">
+							<input class="w3-input w3-border" type="text" placeholder="Full Name" name="name">
 						</div>
 						<div class="w3-third">
 							<input type="submit" value="Enter" class=" w3-button w3-black  " style="width:150px">
@@ -64,12 +64,31 @@
 						<tr>
 							<br>
 							<td>
-								<!--อย่าลืมใส่ Id studentot-->
+								<?php
+									include('connect_db.php');
+
+									$sql = "SELECT code FROM student";
+    								$stmt = $conn->prepare( $sql ); 
+    								$stmt->execute();
+    								while($data=$stmt->fetch() ){
+									echo "<br>".$data ['code']."<br>";
+									}
+
+								?>
 
 							</td>
 
 							<td>
-								<!--อย่าลืมใส่ full name-->		
+								<?php
+
+									$sql = "SELECT fullname FROM student";
+									$stmt = $conn->prepare( $sql ); 
+									$stmt->execute();
+									while($data=$stmt->fetch() ){
+									echo "<br>".$data ['fullname']."<br>";
+								}
+
+								?>
 							</td>
 
 						
