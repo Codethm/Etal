@@ -1,5 +1,5 @@
 <?php
-$servername = "192.168.1.123";
+$servername = "100.110.45.62";
 $username = "root";
 $password = "123456";
 $dbname = "etalDB";
