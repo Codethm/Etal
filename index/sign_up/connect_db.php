@@ -1,6 +1,6 @@
 <?php
-$servername = "100.110.45.62";
-$username = "root";
+$servername = "codethm.ddns.net";
+$username = "admin";
 $password = "123456";
 $dbname = "etalDB";
 

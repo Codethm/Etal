@@ -1,5 +1,5 @@
 <?php
-include('connect_db.php');
+include_once('connect_db.php');
 
 $Fname= $_POST['name'];
 $Email = $_POST['email'];
@@ -23,10 +23,12 @@ if($stmt->execute())
         VALUES('$Fname','$Email','$Pass')";
         $conn ->exec($sql);
         session_start();
+        
+        $last_id = $conn->lastInsertId();
+        $_SESSION['idcreateclass'] = $last_id;
+        $_SESSION['name'] = $Fname;
 
-        $_SESSION['name']= $Fname;
-
-        header('http://127.0.0.1/Etal/index/main.php');
+        header('location: main.php');
     }else
     {
         $message = 'account found with that Email.';

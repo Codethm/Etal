@@ -1,14 +1,6 @@
-<?php 
-
+<?php
 session_start();
-
-
-
-
-
 ?>
-
-
 <html>
 
 <head>
@@ -78,7 +70,8 @@ session_start();
 						<i class="fa fa-list-alt"></i> &nbsp;CREATE CLASS</a>
 					<a href="#team" class="w3-bar-item w3-button">
 						<i class="	fa fa-group"></i>
-						<?php echo htmlspecialchars($_SESSION['name']); ?> </a>
+						<?php
+						echo htmlspecialchars($_SESSION['name']); ?> </a>
 
 					<a href="index.html" class="w3-bar-item w3-button">
 						<i class="	fa fa-share-square-o"></i> LOG OUT</a>
@@ -93,7 +86,6 @@ session_start();
 			</div>
 		</div>
 
-<<<<<<< HEAD
 		<!-- Sidebar on small screens when clicking the menu icon -->
 
 		<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
@@ -108,23 +100,6 @@ session_start();
 				<i class="	fa fa-share-square-o"></i> LOG OUT</a>
 
 		</nav>
-=======
-<body>
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="main.php" class="w3-bar-item w3-button w3-wide ">ETAL</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
-      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <!--ใส่ชื่ออาจารย์นะ-->
-      <a href="createclass.php" class="w3-bar-item w3-button"><i class="fa fa-list-alt"></i> &nbsp;CREATE CLASS</a>
-      <a href="#team" class="w3-bar-item w3-button"><i class="	fa fa-group"></i> <?php echo htmlspecialchars($_SESSION['name']); ?> </a>
-      
-      <a href="index.html" class="w3-bar-item w3-button"><i class="	fa fa-share-square-o"></i> LOG OUT</a>
-      
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
->>>>>>> 706faf0d384f0402be74afbf65eeb75e58bdd119
 
 
 
