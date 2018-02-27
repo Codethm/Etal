@@ -5,6 +5,7 @@ session_start();
 
 
 
+
 ?>
 
 
@@ -71,10 +72,10 @@ session_start();
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
       <!--ใส่ชื่ออาจารย์นะ-->
-      <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-list-alt"></i> &nbsp;CREATE CLASS</a>
-      <a href="#team" class="w3-bar-item w3-button"><i class="	fa fa-group"></i> <? echo $_SESSION['name']?> </a>
+      <a href="createclass.html" class="w3-bar-item w3-button"><i class="fa fa-list-alt"></i> &nbsp;CREATE CLASS</a>
+      <a href="#team" class="w3-bar-item w3-button"><i class="	fa fa-group"></i> <?php echo htmlspecialchars($_SESSION['name']); ?> </a>
       
-      <a href="#pricing" class="w3-bar-item w3-button"><i class="	fa fa-share-square-o"></i> LOG OUT</a>
+      <a href="index.html" class="w3-bar-item w3-button"><i class="	fa fa-share-square-o"></i> LOG OUT</a>
       
     </div>
     <!-- Hide right-floated links on small screens and replace them with a menu icon -->
