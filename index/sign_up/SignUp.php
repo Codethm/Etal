@@ -25,10 +25,10 @@ if($stmt->execute())
         session_start();
         
         $last_id = $conn->lastInsertId();
-        $_SESSION['idcreateclass'] = $last_id;
+        $_SESSION['idteacher'] = $last_id;
         $_SESSION['name'] = $Fname;
 
-        header('location: main.php');
+        header('location: http://codethm.ddns.net/Etal/index/main.php');
     }else
     {
         $message = 'account found with that Email.';
