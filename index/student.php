@@ -1,3 +1,53 @@
+<?php
+	include('connect_db.php');
+	
+	session_start();
+	$fksub = $_SESSION['idcreateclass'];
+   if(! empty($_POST['id'])&& !empty('name'))
+	{	
+
+		
+        $id = $_POST['id'];
+		$name = $_POST['name'];
+
+		$sql = "SELECT idstudent FROM student WHERE code = '$id';";
+		echo $sql;
+
+		$stmt = $conn->prepare($sql);
+		if($stmt->execute()){
+    		if($stmt->rowCount() == 1){
+        		if($row = $stmt->fetch()){
+				$idstd = $row['idstudent'];
+				echo $idstd;
+            	$sql = "INSERT INTO student_has_subjects(student_idstudent,subjects_idsubjects)
+				VALUES($idstd,$fksub)";
+				$conn->exec($sql);
+    		    }
+   		 	} else{
+				$sql = "INSERT INTO student(code,fullname)
+				VALUES('$id','$name')";
+				$conn->exec($sql);
+				$last_id = $conn->lastInsertId();
+		
+				$sql = "INSERT INTO student_has_subjects(student_idstudent,subjects_idsubjects)
+				VALUES($last_id,$fksub)";
+				$conn->exec($sql);
+		    }
+		} else{
+		    echo "Oops! Something went wrong. Please try again later.";
+		}
+
+
+
+		
+
+
+
+        header('Location: student.php');
+    }
+
+?>
+
 <html>
 
 <head>
@@ -39,7 +89,6 @@
 					<a href="#team" class="w3-bar-item w3-button">
 						<i class="	fa fa-group"></i>
 						<?php
-						session_start();
 						echo htmlspecialchars($_SESSION['name']); ?> </a>
 
 					<a href="index.html" class="w3-bar-item w3-button">
@@ -73,7 +122,7 @@
 	<div class="container-login100">
 		<div class="w3-container w3-content w3-padding-64 wrap-login100" style="max-width:1000px">
 			<!--ส่วนเพิ่มข้อมูล-->
-			<form method="POST" action="stuin.php" class="w3-container">
+			<form method="POST" action="student.php" class="w3-container">
 				<h2 class="w3-wide w3-center ">Insert Student</h2>
 				<br>
 				<br>
@@ -111,8 +160,10 @@
 							<td>
 								<?php
 									include('connect_db.php');
-
-									$sql = "SELECT code FROM student";
+									$sql = "SELECT code FROM student ,student_has_subjects,subjects 
+									WHERE (student.idstudent= student_has_subjects.student_idstudent 
+									and student_has_subjects.subjects_idsubjects = subjects.idsubjects) 
+									and subjects.idsubjects = $fksub";
     								$stmt = $conn->prepare( $sql ); 
     								$stmt->execute();
     								while($data=$stmt->fetch() ){
@@ -126,7 +177,10 @@
 							<td>
 								<?php
 
-									$sql = "SELECT fullname FROM student";
+									$sql = "SELECT fullname FROM student ,student_has_subjects,subjects
+									WHERE (student.idstudent= student_has_subjects.student_idstudent 
+									and student_has_subjects.subjects_idsubjects = subjects.idsubjects) 
+									and subjects.idsubjects = $fksub";
 									$stmt = $conn->prepare( $sql ); 
 									$stmt->execute();
 									while($data=$stmt->fetch() ){
