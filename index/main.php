@@ -107,9 +107,31 @@ session_start();
 			<div class="w3-container w3-content w3-padding-64 wrap-login100" style="max-width:1000px">
 				<!--ส่วนเพิ่มข้อมูล-->
 				<h2 class="w3-wide w3-center ">MY CLASS</h2>
+					<br>
+					<br>
+				<table style="width:100%">
+  					<tr>
+    					<th>Subjects Name</th> 
+  					</tr>
+  					<tr>
+    					<td>
+							<?php
+								include('connect_db.php');
+								$idth = $_SESSION['idteacher'];
 
-
-
+								$sql = "SELECT name FROM subjects
+								where subjects.teacher_idteacher = $idth";
+								$stmt = $conn->prepare( $sql ); 
+    							$stmt->execute();
+								while($data=$stmt->fetch() )
+								{
+								echo "<br>"."<a href ='student.php'>".$data['name']."<br>"."</a>";
+								}
+							?>
+						</td>
+  						</tr>
+					</tr>
+				</table>	  
 
 			</div>
 
