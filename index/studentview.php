@@ -63,7 +63,7 @@ include_once('connect_db.php');
                 {
                     $idstu = $_GET['IDStudent'];
                     $sql = "SELECT * FROM subjects su,student st ,student_has_subjects ss WHERE( ss.student_idstudent= st.idstudent AND ss.subjects_idsubjects = su.idsubjects)AND
-                    st.code = $idstu";
+                    st.code = '$idstu'";
                     $stmt =$conn->prepare($sql);
                     $stmt->execute();
                     
