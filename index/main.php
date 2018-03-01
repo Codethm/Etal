@@ -117,15 +117,15 @@ $idth = $_SESSION['idteacher'];
   					</tr>
   					<tr>
     					<td>
-							<?php
-								
-								$sql = "SELECT name FROM subjects
+							<?php		
+								$sql = "SELECT idsubjects,name FROM subjects
 								where subjects.teacher_idteacher = $idth";
 								$stmt = $conn->prepare( $sql ); 
 								$stmt->execute();
 								while($data=$stmt->fetch() )
 								{
-								echo "<br>"."<a href ='classedits.php'>".$data['name']."<br>"."</a>";
+								echo "<br>"."<a href ='classedits.php?idsubject=".$data['idsubjects']."'>".$data['name']."<br>"."</a>";
+
 								}
 							?>
 						</td>

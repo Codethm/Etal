@@ -2,7 +2,9 @@
 session_start();
 include('connect_db.php');
 $idth = $_SESSION['idteacher'];
+$idclass = $_GET['idsubject'];
 echo $idth ."<br>";
+echo $idclass;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +44,7 @@ echo $idth ."<br>";
         $sql = "SELECT code FROM student,subjects,student_has_subjects
                 WHERE (student.idstudent = student_has_subjects.student_idstudent
                 and subjects.idsubjects = student_has_subjects.subjects_idsubjects
-                AND subjects.idsubjects = '6');";
+                AND subjects.idsubjects = $idclass);";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         while($data = $stmt->fetch())
@@ -57,7 +59,7 @@ echo $idth ."<br>";
         $sql = "SELECT fullname FROM student,subjects,student_has_subjects
                 WHERE (student.idstudent = student_has_subjects.student_idstudent
                 and subjects.idsubjects = student_has_subjects.subjects_idsubjects
-                AND subjects.idsubjects = '6');";
+                AND subjects.idsubjects = $idclass);";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         while($data = $stmt->fetch())
