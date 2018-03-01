@@ -1,5 +1,7 @@
 <?php
 session_start();
+include('connect_db.php');
+$idth = $_SESSION['idteacher'];
 ?>
 <html>
 
@@ -111,21 +113,19 @@ session_start();
 					<br>
 				<table style="width:100%">
   					<tr>
-    					<th>Subjects Name</th> 
+						<th>Subjects Name</th> 
   					</tr>
   					<tr>
     					<td>
 							<?php
-								include('connect_db.php');
-								$idth = $_SESSION['idteacher'];
-
+								
 								$sql = "SELECT name FROM subjects
 								where subjects.teacher_idteacher = $idth";
 								$stmt = $conn->prepare( $sql ); 
-    							$stmt->execute();
+								$stmt->execute();
 								while($data=$stmt->fetch() )
 								{
-								echo "<br>"."<a href ='student.php'>".$data['name']."<br>"."</a>";
+								echo "<br>"."<a href ='classedits.php'>".$data['name']."<br>"."</a>";
 								}
 							?>
 						</td>
