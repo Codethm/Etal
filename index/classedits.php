@@ -3,8 +3,6 @@ session_start();
 include('connect_db.php');
 $idth = $_SESSION['idteacher'];
 $idclass = $_GET['idsubject'];
-echo $idth ."<br>";
-echo $idclass;
 ?>
 <!DOCTYPE html>
 <html lang="en">
