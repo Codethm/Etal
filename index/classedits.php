@@ -170,10 +170,16 @@ $idclass = $_GET['idsubject'];
 					<h1>WEEK VIEW </h1>
 					<br>
 					<br>
-					week1<br>
-					week2<br>
-					week3<br>
-					week4
+					<?php		
+						$sql = "SELECT idclass,weeknum FROM class WHERE subjects_idsubjects = $idclass";
+						$stmt = $conn->prepare( $sql ); 
+						$stmt->execute();
+						while($data=$stmt->fetch() )
+						{
+						echo "<br>"."<a href ='report.php?idclass=".$data['idclass']."'>week ".$data['weeknum']."<br>"."</a>";
+
+						}
+					?>
    
 					</div>
 
