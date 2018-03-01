@@ -89,56 +89,35 @@ $idclass = $_GET['idsubject'];
 					<!--ส่วนเพิ่มข้อมูล-->
 				<div class="w3-half w3-center">
 					<h1>CLASS VIEW </h1>
-
-						<table style="width:100%" >
-							
-
-							<br><br>
-
-						<tr>
-							<th>Name class</th>
-							<th>Location</th>
-						</tr>
-						<tr>
-							<td>
-								<?php
-                                  $sql = "SELECT name FROM student,subjects,student_has_subjects
-               					  WHERE (student.idstudent = student_has_subjects.student_idstudent
-                				  and subjects.idsubjects = student_has_subjects.subjects_idsubjects
-                                  AND subjects.idsubjects = $idclass );";
-                                  $stmt = $conn->prepare($sql);
-                                 $stmt->execute();
-                                 while($data = $stmt->fetch())
-                                 {
-                                    echo "<br>".$data['name']."<br>";
-                                 }
-                                ?>
-
-							</td>
-							<td>
-								<?php
-                                   $sql = "SELECT location FROM student,subjects,student_has_subjects
-                                 WHERE (student.idstudent = student_has_subjects.student_idstudent
-                                 and subjects.idsubjects = student_has_subjects.subjects_idsubjects
-                                 AND subjects.idsubjects = $idclass);";
-                                 $stmt = $conn->prepare($sql);
-                                 $stmt->execute();
-                                 while($data = $stmt->fetch())
-                                 {
-                                    echo "<br>".$data['location']."<br>";
-                                 }
-                                ?>
-
-							</td>
-						</tr>
-					</table>
-
-						
-
-
+						<?php
+							   $sql = "SELECT name FROM Subjects
+							   WHERE idsubjects = $idclass";
+							   $stmt = $conn->prepare( $sql ); 
+								$stmt->execute();
+								while($data=$stmt->fetch() )
+								{
+								echo "<h5>".$data['name']."</h5>";
+								}
+                         ?>
+						<?php
+							   $sql = "SELECT location FROM Subjects
+							   WHERE idsubjects = $idclass";
+							   $stmt = $conn->prepare( $sql ); 
+								$stmt->execute();
+								while($data=$stmt->fetch() )
+								{
+								echo "<h5>"."Room: ".$data['location']."</h5>";
+								}
+                         ?>
+						 <?php
+						 		
+						 
+						 
+						 
+						 
+						 
+						 ?>
 					<table style="width:100%" >
-							
-
 							<br><br>
 
 						<tr>
