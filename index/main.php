@@ -35,7 +35,7 @@ $idth = $_SESSION['idteacher'];
 				<a href="main.php" class="w3-bar-item w3-button w3-wide ">ETAL</a>
 				<!-- Right-sided navbar links -->
 				<div class="w3-right w3-hide-small">
-					<a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+					<a href="http://codethm.ddns.net/Etal/index/powered%20by/" class="w3-bar-item w3-button">ABOUT</a>
 					<!--ใส่ชื่ออาจารย์นะ-->
 					<a href="createclass.php" class="w3-bar-item w3-button">
 						<i class="fa fa-list-alt"></i> &nbsp;CREATE CLASS</a>
