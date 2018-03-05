@@ -1,7 +1,5 @@
 <?php include_once("connect_db.php");
 ?>
-
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -63,7 +61,7 @@ var options = {
 			}
 			echo "// ".$dotch."-".$dotst ."
 			";
-	?>
+			?>
 
 		]
 	}
@@ -75,14 +73,25 @@ $("#chartContainer").CanvasJSChart(options);
 </script>
 </head>
 <body>
-
 <div class="container-login100">
 		<div class="w3-container w3-content w3-padding-64 wrap-login100" style="max-width:1000px">
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<div>
+	<?php
+		$sql = "SELECT * FROM attendance inner join student on attendance.student_idstudent=student.idstudent WHERE attendance.class_idclass=$id;";
+		$stmt =$conn->prepare($sql);
+		$stmt->execute();
+
+		foreach($stmt->fetchall() as $key => $value){
+		$name = $value['fullname'];
+		$code = $value['code'];
+		$time = $value['time'];
+		echo $key,"&emsp;",$name,"&emsp;",$code,"&emsp;",$time,"<hr>";
+		}
+	?>
 </div>
-
-
-	</div>
+</div>
+</div>
 
 
 
@@ -104,9 +113,5 @@ $("#chartContainer").CanvasJSChart(options);
 	<script src="js/main.js"></script>
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
-
-
-
-
 </body>
 </html>
